@@ -1,7 +1,7 @@
-const cheerio = require("cheerio");
+ const cheerio = require("cheerio");
 const request = require("request");
 const BatsmanData = require("./batsman.js");
-//let matchLink = "https://www.espncricinfo.com/series/ipl-2020-21-1210595/match-results";
+// let matchLink = "https://www.espncricinfo.com/series/ipl-2020-21-1210595/match-results";
 function getAllMatchesLink(matchLink){
     request(matchLink, function(err, res, data){
          process(data);

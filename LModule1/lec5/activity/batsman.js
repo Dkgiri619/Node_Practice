@@ -4,8 +4,6 @@ const cheerio = require("cheerio");
 const request = require("request");
 const fs = require("fs");
 const json2xls = require('json2xls');
-
-
 function BatsmanData(link){
     request(link, function(err, res, data){
         processData(data);

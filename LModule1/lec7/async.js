@@ -1,17 +1,10 @@
 const fs =  require("fs");
-console.log("introduce yourself");
+let file = ["./f1.txt", "./f2.txt", "f3.txt"];
 
-
-
-fs.readFile("./f1.txt",function(err, data){
-    console.log(data+"");
-    fs.readFile("./f2.txt",function(err, data){
-        console.log(data+"");
-        fs.readFile("./f3.txt",function(err, data){
-            console.log(data+"");
-        })
+let f;
+let i=0;
+while(f!=undefined){
+    fs.readFile(file[i], function(err, data){
+        f = data
     })
-    
-})
-
-console.log("end");
+}
