@@ -54,9 +54,36 @@ browserPromise.then(function(browser){
   })
   .then(function(allQuesLinks){
     let oneQuesSolvePromise = solveQuestion(allQuesLinks[0]);
+    for(let i=0;i<allQuesLinks.length;i++){
+        oneQuesSolvePromise = oneQuesSolvePromise.then(function(){
+        let nextQuesSolvePromise = solveQuestion(allQuesLinks[i]);
+        return nextQuesSolvePromise;
+        })
+    }
     return oneQuesSolvePromise;
   })
+  .then(function(){
+      console.log("Solved all question");
+  })
 
+  function handleLockBtn(){
+    return new Promise(function(scb , fcb){
+      let waitForLockBtn = tab.waitForSelector('.ui-btn-primary.ui-btn-styled' , {visible:true , timeout:5000});
+      waitForLockBtn.then(function(){
+        return tab.click('.ui-btn-primary.ui-btn-styled');
+      })
+      .then(function(){
+        // Lock Button Found !!
+        console.log("Lock Button Found !!");
+        scb();
+      })
+      .catch(function(){
+        // Lock Button Not Found !!
+        console.log("Lock Button not found !!");
+        scb();
+      })
+    })
+  }
 
 
 function getCode(){
@@ -90,6 +117,7 @@ function getCode(){
         })
         .then(function(code){
             gcode = code;
+            console.log(code);
             scb();
         })
         .catch(function(error){
@@ -99,8 +127,42 @@ function getCode(){
 }
 
 function pasteCode(){
-    return Promise(function(scb, fcb){
-        let     
+    return new Promise(function(scb, fcb){
+        let waitPromise = waitAndClick(".checkbox-input");
+        waitPromise.then(function(){
+            return tab.waitForTimeout(2000);
+        })
+        .then(function(){
+            return tab.type('.custominput', gcode);
+        })
+        .then(function(){
+            return tab.keyboard.down("Control");
+          })
+          .then(function(){
+            return tab.keyboard.press("A");
+          })
+          .then(function(){
+            return tab.keyboard.press("X");
+          })
+          .then(function(){
+              return tab.click('.overflow-guard');
+          })
+          .then(function(){
+              return tab.keyboard.press("A");
+          })
+          .then(function(){
+              return tab.keyboard.press("V");
+          })
+          .then(function(){
+            return tab.keyboard.up("Control");
+        })
+        .then(function(){
+            return tab.click(".hr-monaco-submit");
+        })
+        .then(function(){
+            
+            scb();
+        })
     })
 }
 function solveQuestion(link){
@@ -110,13 +172,22 @@ function solveQuestion(link){
             return waitAndClick('div[data-attr2="Editorial"]');
         })
         .then(function(){
+            return handleLockBtn();
+        })
+        .then(function(){
             return getCode();
         })
         .then(function(){
-            return tab.click('div[data-attr2="Problem"]');
+            return tab.click('a[id="tab-1-item-0"]');
         })
         .then(function(){
             return pasteCode();
+        })
+        .then(function(){
+            scb();
+        })
+        .catch(function(error){
+            fcb(error);
         })
     })
 }
