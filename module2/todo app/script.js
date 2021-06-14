@@ -10,6 +10,7 @@ addButton.addEventListener("click", function(e){addTodoItem(e);});
 function addTodoItem(e){
     if((e.type=="keypress" && e.code=="Enter") || e.type=="click"){
         //console.log(inputText.value);
+        if(inputText.value=="")return;
         appendTodo(inputText.value);
         inputText.value="";
     }
@@ -24,7 +25,7 @@ function appendTodo(value){
     todoInputDiv.classList.add("todo-item");
 
     let pTodoTag = document.createElement("p");
-    pTodoTag.classList.add("todo-input");
+    pTodoTag.classList.add("todo-Text");
     pTodoTag.textContent = value;
 
     let deleteButton = document.createElement("button");
