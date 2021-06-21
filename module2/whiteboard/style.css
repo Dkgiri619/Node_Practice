@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.tool {
+    height: 70%;
+    width: 7%;
+}
+
+.tool img {
+    height: 100%;
+    width: 100%;
+}
+
+.tools-container {
+    height: 100px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drawing-container {
+}
+
+#canvas {
+    
+}
+
+.tools {
+}
+
+.tools-content {
+    height: 70%;
+    width: 48%;
+    border-radius: 19px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: darkslategray;
+}
+
+.sticky {
+    width: 300px;
+    position: absolute;
+    top: 200px;
+    height: 200px;
+    left: 545px;
+}
+
+.sticky-header {
+    background: teal;
+    height: 25px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.sticky-header div {
+    height: 19px;
+    width: 26px;
+    margin: 4px;
+}
+
+.sticky-content {
+    height: 87%;
+    width: 100%;
+    background: skyblue;
+    outline: none;
+    padding: 12px;
+    font-size: 23px;
+}
+
+.minimize {
+    background: turquoise;
+    border-radius: 12px;
+}
+
+.close {
+    background: orangered;
+    border-radius: 207px;
+}
+.hide {
+    opacity: 0.6;
+}

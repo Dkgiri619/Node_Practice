@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiteBoard</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="tools-container">
+        <div class="tools-content">
+            <div class="tool"><img src="./icons/Black_Pencil.svg" alt="" /></div>
+        <div class="tool"><img src="./icons/Eraser.svg" alt="" /></div>
+        <div class="tool" id="undo">
+          <img src="./icons/Undo.svg" alt="" />
+        </div>
+        <div class="tool" id="redo">
+            <img src="./icons/Redo.svg" alt="" />
+        </div>
+        <div class="tool" id="sticky-icon"><img src="./icons/StickyNote.svg" alt="" /></div>
+        <div class="tool"><img src="./icons/Photo.svg" alt="" /></div>
+        <div class="tool"><img src="./icons/Download.svg" alt="" /></div>
+        </div>
+    </div>
+    <div class="drawing-container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
