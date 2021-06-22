@@ -6,13 +6,16 @@ let lineDB = [];
 let line = [];
 let redoLinesDB = [];
 let stickyAdd = document.querySelector("#sticky-icon");
-
+let donwloadCanvas = document.querySelector("#canvas-download");
+let penSelect = document.querySelector("#pen");
+let eraserSelect = document.querySelector("#eraser");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight - 100;
 
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight - 100;
+  drawLinesDB();
 });
 
 let isPendown = false;
@@ -92,25 +95,39 @@ function drawLinesDB(){
     }
 }
 
+// sticky add
+stickyAdd.addEventListener("click", function(){
+     addSticky();
+})
 
-stickyAdd.addEventListener("click", addSticky)
-
-function addSticky(){
+function addSticky(imgObject){
     let stickyDiv = document.createElement("div");
     stickyDiv.classList.add("sticky");
     stickyDiv.innerHTML = `<div class="sticky-header">
     <div class="minimize" id="minimize-sticky"></div>
     <div class="close" id="close-sticky"></div>
-</div>
-<div class="sticky-content" contenteditable="true"></div>`;
+</div>`;
 
+
+    //<div class="sticky-content" contenteditable="true"></div>
+    let stickyContent;
+    if(imgObject){
+        let stickyImageDiv = document.createElement("div");
+        stickyImageDiv.classList.add("stickyImage");
+        stickyImageDiv.append(imgObject);
+        stickyDiv.append(stickyImageDiv);
+        stickyContent = stickyImageDiv;
+    }else{
+        stickyContent = document.createElement("div");
+        stickyContent.classList.add("sticky-content");
+        stickyContent.setAttribute("contenteditable", 'true');
+        stickyDiv.append(stickyContent);
+    }
     let closeSticky = stickyDiv.querySelector('#close-sticky');
 
     closeSticky.addEventListener("click", function(e){
         stickyDiv.remove();
     });
-   
-    let stickyContent = stickyDiv.querySelector(".sticky-content");
     let minimizeSticky = stickyDiv.querySelector("#minimize-sticky");
 
     minimizeSticky.addEventListener("click", function(){
@@ -144,4 +161,66 @@ function addSticky(){
     });
 
     document.body.append(stickyDiv);
+}
+
+// photo upload 
+let photoDiv = document.querySelector("#photo-upload");
+let photoInput = document.querySelector("#input-file");
+
+photoDiv.addEventListener("click", function(){
+    photoInput.click();
+})
+
+photoInput.addEventListener("change", function(e){
+    let fileObject = e.target.files[0];
+    let filePath = URL.createObjectURL(fileObject);
+    let img = document.createElement("img");
+    img.setAttribute("src", filePath);
+    addSticky(img);
+})
+
+// canvas download image
+donwloadCanvas.addEventListener("click", function(){
+    let imagePath = canvas.toDataURL("image/jpg");
+    let aTag = document.createElement("a");
+    aTag.href = imagePath;
+    aTag.download = 'canvas.jpg';
+    aTag.click();
+})
+
+// pen options
+{/* <div class="pen-options">
+    <input type="range" name="" id="pen-range">
+    <div class="pen-colour red"></div>
+    <div class="pen-colour blue"></div>
+    <div class="pen-colour green"></div>
+    <div class="pen-colour yellow"></div>
+    <div class="pen-colour black"></div>
+</div> */}
+penSelect.addEventListener("click", function(){
+    activeTool(penSelect, eraserSelect);
+});
+eraserSelect.addEventListener("click", function(){
+    activeTool(eraserSelect, penSelect);
+});
+
+function activeTool(selectTool, hideTool){
+    // if selectTool is select
+    if(selectTool.classList.contains("active-tools")){
+        if(selectTool.children[1].classList.contains("hide")){
+            selectTool.children[1].classList.remove("hide");
+            hideTool.children[1].classList.add("hide");
+        }else{
+            selectTool.children[1].classList.add("hide");
+        }
+        
+
+    }else{
+        selectTool.classList.add("active-tools");
+        selectTool.classList.remove("fade");
+        hideTool.classList.remove("active-tools");
+        hideTool.classList.add("fade");
+        hideTool.children[1].classList.add("hide");
+    }
+
 }

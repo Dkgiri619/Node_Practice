@@ -10,8 +10,19 @@
 <body>
     <div class="tools-container">
         <div class="tools-content">
-            <div class="tool"><img src="./icons/Black_Pencil.svg" alt="" /></div>
-        <div class="tool"><img src="./icons/Eraser.svg" alt="" /></div>
+            <div class="tool pen active-tool" id="pen"><img src="./icons/Black_Pencil.svg" alt="" />
+                <div class="pen-options hide">
+                    <input type="range" name="" id="pen-range">
+                    <div class="pen-colour red"></div>
+                    <div class="pen-colour blue"></div>
+                    <div class="pen-colour green"></div>
+                    <div class="pen-colour yellow"></div>
+                    <div class="pen-colour black"></div>
+                </div>
+            </div>
+        <div class="tool eraser fade" id="eraser"><img src="./icons/Eraser.svg" alt="" />
+            <div class="eraser-options hide"><input type="range" name="" id="pen-range"></div>
+        </div>
         <div class="tool" id="undo">
           <img src="./icons/Undo.svg" alt="" />
         </div>
@@ -19,8 +30,10 @@
             <img src="./icons/Redo.svg" alt="" />
         </div>
         <div class="tool" id="sticky-icon"><img src="./icons/StickyNote.svg" alt="" /></div>
-        <div class="tool"><img src="./icons/Photo.svg" alt="" /></div>
-        <div class="tool"><img src="./icons/Download.svg" alt="" /></div>
+        <div class="tool" id="photo-upload"><img src="./icons/Photo.svg" alt="" />
+            <input type="file" name="" class="hide" id="input-file">
+        </div>
+        <div class="tool" id="canvas-download"><img src="./icons/Download.svg" alt="" /></div>
         </div>
     </div>
     <div class="drawing-container">
