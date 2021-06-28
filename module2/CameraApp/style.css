@@ -21,6 +21,7 @@
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 #record {
@@ -78,6 +79,41 @@
     animation-name: recording;
     animation-duration: 2s;
     animation-iteration-count: infinite;
+}
+
+.filter-container {
+    position: absolute;
+    top: 130px;
+    left: 45px;
+    width: 150px;
+    height: 421px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.filters {
+    width: 75%;
+    height: 20%;
+    border-radius: 16px;
+    margin-bottom: 8px;
+}
+
+.fill {
+    opacity: 0.7;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.filter-div {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.2;
 }
 
 @keyframes recording {

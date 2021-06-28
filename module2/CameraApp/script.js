@@ -1,12 +1,19 @@
-let videoElement = document.querySelector("video");
+let videoElements = document.querySelectorAll("video");
 let recordButton = document.querySelector("#record");
 let innerRecord = document.querySelector(".inner-record");
 let innerCapture = document.querySelector(".inner-capture");
-let recordingState = false;
 let capturePhoto = document.querySelector("#capture");
+let filters = document.querySelectorAll(".filters");
 
+
+let recordingState = false;
 let constraint = {video:true};
 navigator.mediaDevices.getUserMedia(constraint).then(function(mediaStream){
+    for(let i=1;i<videoElements.length;i++){
+        let videoElement = videoElements[i];
+        videoElement.srcObject = mediaStream;
+    }
+    let videoElement = videoElements[0];
     videoElement.srcObject = mediaStream;
     let mediaRecorder = new MediaRecorder(mediaStream);
     mediaRecorder.onstart = function(){};
@@ -38,6 +45,15 @@ navigator.mediaDevices.getUserMedia(constraint).then(function(mediaStream){
         let ctx = canvas.getContext("2d");
     
         ctx.drawImage(videoElement, 0, 0);
+        if(document.querySelector(".filter-div")!=null){
+            let filterDiv = document.querySelector(".filter-div");
+            if( filterDiv.style.backgroundColor != ""){
+                let filterW = filterDiv.style.backgroundColor.slice(4,15);
+                filterW = `rgba(${filterW}, 0.2)`
+                ctx.fillStyle = filterW;
+                ctx.fillRect(0,0,canvas.width, canvas.height);
+            }
+        }
         let a = document.createElement("a");
         a.download = `image${Date.now()}.jpg`;
         a.href = canvas.toDataURL('image/jpg');
@@ -45,11 +61,31 @@ navigator.mediaDevices.getUserMedia(constraint).then(function(mediaStream){
         setTimeout(  function(){
             innerCapture.classList.remove("animate-capture");
         },1000);
-    })
+    });
 })
 .catch(function(error){
     console.log(error);
 });
+
+
+for(let i=0;i<filters.length;i++){
+    let filterOne = filters[i];
+    filterOne.addEventListener("click", function(e){
+        let currentFilter = e.target.parentElement.style.backgroundColor;
+        if(document.querySelector(".filter-div")!=null){
+            let filterDiv = document.querySelector(".filter-div");
+            if(filterDiv.style.backgroundColor == currentFilter){
+                filterDiv.style.backgroundColor = "";
+            }else
+                filterDiv.style.backgroundColor = currentFilter;
+        }else{
+            let filterDiv = document.createElement("div");
+            filterDiv.classList.add("filter-div");
+            filterDiv.style.backgroundColor = currentFilter;
+            document.body.append(filterDiv);
+        }
+    });
+}
 
 
 
