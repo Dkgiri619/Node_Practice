@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu-options {
+    width: 100vw;
+    height: 6vh;
+    background: pink;
+    position: sticky;
+    top: 0vh;
+}
+
+.formula-tab {
+    width: 100vw;
+    background: lightblue;
+    height: 6vh;
+    position: sticky;
+    top: 6vh;
+}
+
+.cells {
+    width: 100vw;
+    height: 84vh;
+    overflow: auto;
+    position: relative;
+}
+
+.top-left-cell {
+    border: 1px solid;
+    width: 65px;
+    height: 25px;
+    position: absolute;
+    z-index: 3;
+    background: lightgray;
+}
+
+.top-row {
+    display: flex;
+    position: absolute;
+    left: 65px;
+    background: lightgray;
+    z-index: 2;
+}
+
+.top-row-cell {
+    min-width: 65px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    min-height: 25px;
+    align-items: center;
+}
+
+.left-col {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    position: absolute;
+    width: 65px;
+    background: lightgray;
+    z-index: 2;
+    top: 25px;
+}
+
+.left-col-cell {
+    width: 65px;
+    border: 1px solid;
+    min-height: 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-cell {
+    position: absolute;
+    top: 25px;
+    left: 65px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    /* flex-direction: column; */
+}
+
+.cell {
+    min-width: 65px;
+    min-height: 25px;
+    border: 1px solid;
+    outline: none;
+}
+
+.sheets {
+    background: aqua;
+    width: 100vw;
+    height: 4vh;
+}
