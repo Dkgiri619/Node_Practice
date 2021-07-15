@@ -25,6 +25,7 @@
     height: 84vh;
     overflow: auto;
     position: relative;
+    
 }
 
 .top-left-cell {
@@ -92,10 +93,31 @@
     min-height: 25px;
     border: 1px solid;
     outline: none;
+    max-width: 65px;
 }
 
 .sheets {
     background: aqua;
     width: 100vw;
     height: 4vh;
+}
+.address{
+    width: 10vw;
+    height: 4vh;
+    background: white;
+    margin-left: 3vw;
+    margin-top: 1vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formula-bar{
+    width: 173.3px;
+    height: 25px;
+    background: whitesmoke;
+    margin-left: 137.4px;
+    margin-top: 6px;
+    position: absolute;
+    font-size: 15.8px;
 }
