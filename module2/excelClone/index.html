@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excel Clone</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -14,7 +15,12 @@
         <div class="formula-bar" contenteditable="true"></div>
     </div>
     <div class="cells"></div>
-    <div class="sheets"></div>
+    <div class="sheets">
+        <div class="add-button fas fa-plus"></div>
+        <div class="sheet-lists">
+            <div class="sheet active-sheet" sid=0>Sheet 1</div>
+        </div>
+    </div>
 
     <script src="./script.js"></script>
 </body>

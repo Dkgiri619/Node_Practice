@@ -22,10 +22,9 @@
 
 .cells {
     width: 100vw;
-    height: 84vh;
+    height: 83vh;
     overflow: auto;
     position: relative;
-    
 }
 
 .top-left-cell {
@@ -97,11 +96,12 @@
 }
 
 .sheets {
-    background: aqua;
+    background: lightgrey;
     width: 100vw;
-    height: 4vh;
+    height: 4.9vh;
 }
-.address{
+
+.address {
     width: 10vw;
     height: 4vh;
     background: white;
@@ -112,12 +112,41 @@
     justify-content: center;
     align-items: center;
 }
-.formula-bar{
+
+.formula-bar {
     width: 173.3px;
     height: 25px;
     background: whitesmoke;
-    margin-left: 137.4px;
+    margin-left: 207.4px;
     margin-top: 6px;
     position: absolute;
     font-size: 15.8px;
+}
+
+.sheets {
+    display: flex;
+}
+
+.add-button {
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.sheet-lists {
+    display: flex;
+}
+
+.sheet-lists div {
+    display: flex;
+    width: 70px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-left: 1px solid;
+}
+
+.active-sheet {
+    background-color: white;
 }
