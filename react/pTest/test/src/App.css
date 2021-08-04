@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    height: 509px;
+    width: 440px;
+    position: absolute;
+    left: 470px;
+    border: 1px solid;
+    top: 60px;
+    border-radius: 35px;
+}

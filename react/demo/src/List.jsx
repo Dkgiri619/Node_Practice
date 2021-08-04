@@ -2,7 +2,7 @@ let List = (props) => {
     return (
         <ul>
             {
-                props.tasks.map((el) => {
+                props.tasks.map((el, index) => {
                     return (
                         <li>{el}
                             <button

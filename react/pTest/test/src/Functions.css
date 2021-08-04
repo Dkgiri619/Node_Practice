@@ -1,0 +1,16 @@
+.functions {
+    position: absolute;
+    width: 350px;
+    height: 50px;
+    top: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    left: 50px;
+}
+
+.func-butt {
+    width: 60px;
+    height: 40px;
+    font-size: 17px;
+}
