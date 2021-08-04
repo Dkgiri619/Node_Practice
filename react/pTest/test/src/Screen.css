@@ -1,13 +1,13 @@
 .screen {
     position: absolute;
-    width: 320px;
+    width: 260px;
     border: 4px solid;
-    height: 100px;
-    top: 9vh;
-    left: 60px;
+    height: 70px;
+    top: 40px;
+    left: 49px;
     display: flex;
     justify-content: center;
-    padding: 30px;
+    padding: 15px;
     border-radius: 8px;
     font-size: 30px;
 }

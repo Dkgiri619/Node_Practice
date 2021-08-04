@@ -1,16 +1,25 @@
 .functions {
     position: absolute;
     width: 350px;
-    height: 50px;
-    top: 250px;
+    height: 178px;
+    top: 130px;
     display: flex;
     justify-content: space-between;
     align-content: center;
-    left: 50px;
+    flex-direction: column;
+    left: 245px;
 }
 
 .func-butt {
     width: 60px;
-    height: 40px;
+    height: 60px;
     font-size: 17px;
+}
+.equal{
+    width: 126px;
+    height: 58px;
+    position: absolute;
+    left: -65px;
+    top: 177px;
+
 }

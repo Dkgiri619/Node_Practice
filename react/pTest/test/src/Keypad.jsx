@@ -3,9 +3,6 @@ let Keypad = (props) => {
     return (       
         <div className="keypads">
             <button className="butt" onClick = {()=>{
-                props.changeState(0);
-            }} >{0}</button>
-            <button className="butt" onClick = {()=>{
                 props.changeState(1);
             }} >{1}</button>
             <button className="butt" onClick = {()=>{
@@ -32,6 +29,9 @@ let Keypad = (props) => {
             <button className="butt" onClick = {()=>{
                 props.changeState(9);
             }} >{9}</button>
+            <button className="butt" onClick = {()=>{
+                props.changeState(0);
+            }} >{0}</button>
             <button className="butt" onClick = {()=>{
                 props.startNew();
             }}>C</button>

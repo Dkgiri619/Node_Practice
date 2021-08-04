@@ -1,17 +1,14 @@
 .keypads {
-    height: 167px;
+    height: 250px;
     position: relative;
-    width: 370px;
-    top: 320px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 230px;
+    top: 120px;
     padding: 10px;
     left: 40px;
-    justify-content: space-between;
 }
 
 .butt {
-    width: 78px;
-    height: 33px;
+    width: 65px;
+    height: 59px;
     font-size: 18px;
 }

@@ -14,7 +14,7 @@ let Functions = (props)=>{
             <button className="func-butt" onClick = {()=>{
                 props.changeState("/")
             }} >/</button>
-            <button className="func-butt" onClick = {()=>{
+            <button className="func-butt equal" onClick = {()=>{
                 props.evaluate();
             }}>=</button>
         </div>
