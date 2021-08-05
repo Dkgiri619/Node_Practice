@@ -2,7 +2,7 @@
     position: absolute;
     width: 350px;
     height: 178px;
-    top: 130px;
+    top: 71px;
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -14,9 +14,15 @@
     width: 60px;
     height: 60px;
     font-size: 17px;
+    background-color: #706fd3;
+    border: none;
+    color: whitesmoke;
+}
+.func-butt:hover{
+    background-color: #474787;
 }
 .equal{
-    width: 126px;
+    width: 125px;
     height: 58px;
     position: absolute;
     left: -65px;

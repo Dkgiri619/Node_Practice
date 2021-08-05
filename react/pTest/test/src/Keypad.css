@@ -1,8 +1,8 @@
 .keypads {
     height: 250px;
-    position: relative;
+    position: absolute;
     width: 230px;
-    top: 120px;
+    top: 61px;
     padding: 10px;
     left: 40px;
 }
@@ -11,4 +11,10 @@
     width: 65px;
     height: 59px;
     font-size: 18px;
+    background-color: #2c2c54;
+    border: none;
+    color: whitesmoke;
+}
+.butt:hover{
+    background-color: #474787;
 }

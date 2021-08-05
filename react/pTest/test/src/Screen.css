@@ -1,13 +1,13 @@
 .screen {
     position: absolute;
-    width: 260px;
-    border: 4px solid;
+    width: 257px;
     height: 70px;
-    top: 40px;
+    top: 1px;
     left: 49px;
     display: flex;
     justify-content: center;
     padding: 15px;
-    border-radius: 8px;
     font-size: 30px;
+    color: whitesmoke;
+    background-color: #2c2c54;
 }
