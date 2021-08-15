@@ -1,0 +1,17 @@
+.deleteTable {
+    border: none;
+    background: tomato;
+    color: white;
+    padding: 6px;
+    border-radius: 7px;
+}
+.deleteTable:hover{
+    background-color: red;
+}
+.liked{
+    color: red;
+    cursor: pointer;
+}
+.unliked{
+    cursor: pointer;
+}

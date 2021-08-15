@@ -1,6 +1,4 @@
 let Filter = (props) => {
-    console.log("this log is from filter");
-    console.log(props.genreData);
   return (
     <div class="col-3">
       <ul class="list-group m-4">
